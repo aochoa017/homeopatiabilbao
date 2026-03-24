@@ -5,7 +5,9 @@ import { site } from "../data/site";
 const title = "Sobre la Doctora | Homeopatía Bilbao";
 const description =
 	"Biografia y currículum de la Dra. Mª Luz Ramos, con información de formación y trayectoria según la web original.";
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title={title} description={description}>

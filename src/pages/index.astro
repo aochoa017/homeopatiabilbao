@@ -4,7 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Centro Homeopático en Bilbao | Dra. Mª Luz Ramos";
 const description =
 	"Consulta de homeopatía en Bilbao. Enfoque médico personalizado en salud respiratoria, dermatologica y bienestar general.";
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title={title} description={description}>
