@@ -6,6 +6,8 @@ const title = "Blog de Salud | Homeopatía Bilbao";
 const description =
 	"Articulos de orientación homeopática sobre dolencias frecuentes en consulta de Bilbao.";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const posts = (await getCollection("blog")).sort(
 	(a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime(),
 );
