@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const title = "Contacto y Cita | Homeopatía Bilbao";
+const description =
+	"Pide información o cita en la consulta de homeopatía en Bilbao mediante teléfono o formulario.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel">
+		<p class="eyebrow">Contacto</p>
+		<h1>Solicitar información o cita</h1>
+		<p>
+			Puedes llamarnos al <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+			o escribirnos mediante el formulario para que contactemos contigo. Si lo
+			prefieres, también puedes escribir directamente a <a href={`mailto:${site.email}`}>{site.email}</a>.
+			La atención se presta de forma exclusivamente telematica.
+		</p>
+	</section>
+
+	<section class="section split">
+		<article class="panel">
+			<h2>Datos de contacto</h2>
+			<figure class="media-figure small">
+				<img src="/images/doctora02.jpg" alt="Espacio de consulta en Bilbao" loading="lazy" />
+			</figure>
+			<ul class="list-clean">
+				<li>Teléfono: <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></li>
+				<li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
+				<li>{site.serviceMode}</li>
+			</ul>
+		</article>
+
+		<article class="panel">
+			<h2>Formulario de contacto</h2>
+			<form
+				class="form-grid"
+				action="https://formsubmit.co/homeopatiabilbao@gmail.com"
+				method="POST"
+			>
+				<input type="hidden" name="_subject" value="Nueva solicitud de cita - Homeopatía Bilbao" />
+				<input type="hidden" name="_captcha" value="false" />
+				<input type="hidden" name="_next" value="https://homeopatiabilbao.es/contacto?enviado=1" />
+				<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+				<div class="field">
+					<label for="nombre">Nombre y apellidos</label>
+					<input id="nombre" name="nombre" type="text" required />
+				</div>
+
+				<div class="field">
+					<label for="email">Email</label>
+					<input id="email" name="email" type="email" required />
+				</div>
+
+				<div class="field">
+					<label for="telefono">Teléfono</label>
+					<input id="telefono" name="telefono" type="tel" required />
+				</div>
+
+				<div class="field">
+					<label for="motivo">Motivo de consulta</label>
+					<select id="motivo" name="motivo" required>
+						<option value="">Selecciona una opción</option>
+						<option value="primera-cita">Primera cita</option>
+						<option value="seguimiento">Seguimiento</option>
+						<option value="informacion">Información general</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="mensaje">Mensaje</label>
+					<textarea id="mensaje" name="mensaje" required></textarea>
+				</div>
+
+				<div class="field">
+					<label for="rgpd">Consentimiento</label>
+					<div>
+						<input id="rgpd" name="rgpd" type="checkbox" required />
+						Acepto el tratamiento de datos para gestionar mi solicitud, según la
+						<a href="/privacidad">política de privacidad</a>.
+					</div>
+				</div>
+
+				<button class="button" type="submit">Enviar solicitud</button>
+				<p class="meta">
+					Al enviar, confirmas que has leído el <a href="/aviso-legal">aviso legal</a>,
+					la <a href="/privacidad">política de privacidad</a> y la
+					<a href="/cookies">política de cookies</a>.
+				</p>
+			</form>
+		</article>
+	</section>
+</BaseLayout>

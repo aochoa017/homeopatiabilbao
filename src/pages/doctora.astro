@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const title = "Sobre la Doctora | Homeopatía Bilbao";
+const description =
+	"Biografia y currículum de la Dra. Mª Luz Ramos, con información de formación y trayectoria según la web original.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel">
+		<p class="eyebrow">Dra. Mª Luz Ramos</p>
+		<h1>Biografia y currículum</h1>
+		<p><strong>{site.registration}</strong></p>
+		<div class="media-split">
+			<div>
+				<p>
+					Cursó la Licenciatura en Medicina y Cirugía en la Universidad del País
+					Vasco durante los años 1982-1987.
+				</p>
+				<p>
+					Posteriormente amplió formación en Dermatología (1988), Neurología
+					(1989) y Cardiología (1989), y se especializó en homeopatía a partir de
+					1993.
+				</p>
+			</div>
+			<figure class="media-figure">
+				<img
+					src="/images/doctora01.png"
+					alt="Dra. Mª Luz Ramos en consulta"
+					loading="eager"
+				/>
+			</figure>
+		</div>
+	</section>
+
+	<section class="section split">
+		<article class="panel">
+			<h2>Formacion en homeopatía</h2>
+			<ul class="list-clean">
+				<li>Terapia homeopática (1993)</li>
+				<li>Curso Post-Universitario de homeopatía (1994-1996)</li>
+				<li>Medicina psicosomática y psicología médica (1998)</li>
+				<li>Homeopatía y urgencias (1998)</li>
+				<li>Máster universitario UPV/EHU en Homeopatía y salud (1999-2002)</li>
+			</ul>
+			<p>
+				Todos estos cursos figuran cómo validados por el Colegio Oficial de
+				Medicos de Bizkaia en la información original de la consulta.
+			</p>
+		</article>
+		<article class="panel">
+			<h2>Trayectoria profesional</h2>
+			<p>
+				Desde 1988 hasta 1998 trabajó en OSAKIDETZA cómo médico de familia y,
+				sobre todo, cómo pediatra, compaginando ese trabajo con la consulta
+				privada.
+			</p>
+			<p>
+				A partir de 1993 creció su interés por la homeopatía y continuó
+				especializándose sin dejar de valorar la terapéutica tradicional.
+			</p>
+			<p>
+				Debido al volumen de pacientes, decidió dedicarse plenamente a está
+				orientación clínica.
+			</p>
+		</article>
+	</section>
+
+	<section class="section panel">
+		<p class="eyebrow">Por qué la homeopatía</p>
+		<h2>Información clave explicada de forma sencilla</h2>
+		<p>
+			En la web original se explica que la homeopatía se integra en una asistencia
+			sanitaria global y que el tratamiento debe ser personalizado: dos personas
+			con una misma dolencia pueden necesitar abordajes distintos.
+		</p>
+		<p>
+			También se indica que la medicina homeopática no pretende sustituir siempre a
+			la convencional; según el caso, ambas pueden ser complementarias.
+		</p>
+		<p>
+			Igualmente, se subraya la idea de los síntomas cómo señales del organismo.
+			Por ejemplo, fiebre, tos o moco pueden formar parte de la respuesta defensiva
+			del cuerpo y se valoran dentro del contexto clínico completo.
+		</p>
+		<a class="button secondary" href="/contacto">Solicitar valoración</a>
+	</section>
+</BaseLayout>

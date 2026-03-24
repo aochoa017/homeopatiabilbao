@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const title = "Aviso Legal | Homeopatía Bilbao";
+const description = "Información legal del sitio web del centro homeopático en Bilbao.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel legal">
+		<p class="eyebrow">Cumplimiento legal</p>
+		<h1>Aviso legal</h1>
+		<p>
+			En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la
+			Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes
+			datos:
+		</p>
+		<ul>
+			<li>Titular: {site.doctor}</li>
+			<li>Actividad: atención médica con enfoque homeopático por vía telematica</li>
+			<li>Modalidad: {site.serviceMode}</li>
+			<li>Teléfono: {site.phoneDisplay}</li>
+			<li>Email: {site.email}</li>
+			<li>{site.registration}</li>
+		</ul>
+
+		<h2>Condiciones de uso</h2>
+		<p>
+			El acceso a este sitio atribuye la condición de usuario e implica la
+			aceptación de las condiciones aquí descritas. El usuario se compromete a
+			utilizar los contenidos de forma lícita y respetuosa.
+		</p>
+
+		<h2>Propiedad intelectual</h2>
+		<p>
+			Los textos, imágenes, logotipos y demás elementos de esta web están
+			protegidos por la normativa de propiedad intelectual e industrial. No está
+			permitida su reproducción total o parcial sin autorización previa.
+		</p>
+
+		<h2>Responsabilidad</h2>
+		<p>
+			La información publicada es orientativa y no sustituye la valoración médica
+			individual en consulta. El titular no se responsabiliza del uso indebido de
+			los contenidos por parte de terceros.
+		</p>
+	</section>
+</BaseLayout>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Centro Homeopático en Bilbao | Dra. Mª Luz Ramos";
+const description =
+	"Consulta de homeopatía en Bilbao. Enfoque médico personalizado en salud respiratoria, dermatologica y bienestar general.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="hero panel section">
+		<p class="eyebrow">Centro homeopático en Bilbao</p>
+		<div class="media-split">
+			<div>
+				<h1>Enfoque médico individual para problemas agudos y crónicos</h1>
+				<p>
+					La Dra. Mª Luz Ramos valora cada caso en su conjunto: síntomas,
+					antecedentes, evolución y situación personal. El objetivo es explicar con
+					claridad que está ocurriendo y plantear un plan de tratamiento comprensible
+					y realista.
+				</p>
+				<div class="hero-actions">
+					<a class="button" href="/contacto">Pedir cita</a>
+					<a class="button secondary" href="/doctora">Conocer a la doctora</a>
+				</div>
+			</div>
+			<figure class="media-figure">
+				<img
+					src="/images/doctora02.jpg"
+					alt="Consulta de homeopatía de la Dra. Mª Luz Ramos en Bilbao"
+					loading="eager"
+				/>
+			</figure>
+		</div>
+	</section>
+
+	<section class="section panel">
+		<p class="eyebrow">Información médica clara</p>
+		<h2>Lenguaje profesional, explicado para pacientes</h2>
+		<p>
+			En esta web se explican los procesos de salud con rigor médico y palabras
+			sencillas. Si algo no te queda claro, en consulta se revisa paso a paso para
+			que puedas tomar decisiones con tranquilidad.
+		</p>
+	</section>
+
+	<section class="section split">
+		<div class="panel">
+			<p class="eyebrow">Qué tratamos</p>
+			<h2>Dolencias frecuentes en consulta</h2>
+			<p>
+				Se atienden problemas agudos, crónicos, infecciones de repetición y
+				trastornos funcionales, siempre con valoración clínica completa.
+			</p>
+			<ul class="list-clean">
+				<li>Asma y bronquiolitis de repetición</li>
+				<li>Dermatitis y rinitis estacional</li>
+				<li>Cefaleas, palpitaciones funcionales y estrés</li>
+				<li>Fatiga postinfecciosa y convalecencia</li>
+			</ul>
+		</div>
+		<div class="panel">
+			<p class="eyebrow">Metodo</p>
+			<h2>No se trata solo el síntoma, se estudia todo el contexto</h2>
+			<p>
+				Se tienen en cuenta los antecedentes, el inicio del problema y la forma de
+				enfermar de cada persona para ajustar mejor el tratamiento.
+			</p>
+			<a class="text-link" href="/enfoque-homeopatico">Ver enfoque homeopático</a>
+		</div>
+	</section>
+
+	<section class="section">
+		<p class="eyebrow">Casos clínicos</p>
+		<h2>Experiencia en casos reales</h2>
+		<div class="grid cards-3">
+			<article class="panel card">
+				<h3>Asma infantil</h3>
+				<p>
+					Evolucion de un caso respiratorio con seguimiento clínico continuado.
+				</p>
+				<a class="text-link" href="/casos/asma">Leer caso</a>
+			</article>
+			<article class="panel card">
+				<h3>Casos por especialidad</h3>
+				<p>
+					Acceso organizado por área clínica para lectura sencilla y comparativa.
+				</p>
+				<a class="text-link" href="/casos">Ver todos los casos</a>
+			</article>
+			<article class="panel card">
+				<h3>Articulos de salud</h3>
+				<p>
+					Publicaciones con orientación homeopática explicadas para no especialistas.
+				</p>
+				<a class="text-link" href="/blog">Ir al blog</a>
+			</article>
+		</div>
+	</section>
+
+	<section class="section panel cta-block">
+		<p class="eyebrow">Contacto</p>
+		<h2>¿Quieres información o pedir cita?</h2>
+		<p>
+			Llama al <a href="tel:+34658746672">658 746 672</a> o envíanos tus datos y te
+			llamamos lo antes posible.
+		</p>
+		<a class="button" href="/contacto">Ir al formulario</a>
+	</section>
+</BaseLayout>

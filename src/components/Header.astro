@@ -1,0 +1,43 @@
+---
+const links = [
+	{ href: "/", label: "Inicio" },
+	{ href: "/doctora", label: "Doctora" },
+	{ href: "/enfoque-homeopatico", label: "Enfoque" },
+	{ href: "/casos", label: "Casos" },
+	{ href: "/blog", label: "Blog" },
+	{ href: "/contacto", label: "Contacto" },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+	<div class="container nav-wrap">
+		<a class="brand" href="/" aria-label="Ir a inicio">
+			<span class="brand-mark">HB</span>
+			<span>
+				<strong>Homeopatía Bilbao</strong>
+				<small>Dra. Mª Luz Ramos</small>
+			</span>
+		</a>
+
+		<nav aria-label="Navegacion principal">
+			<ul>
+				{
+					links.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								class:list={{ active: pathname === link.href }}
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<a class="button compact" href="/contacto">Pedir cita</a>
+	</div>
+</header>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Enfoque Homeopático | Homeopatía Bilbao";
+const description =
+	"Como se trabaja en consulta: evaluación individual, síntomas cómo señales del organismo y seguimiento personalizado.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel">
+		<p class="eyebrow">Metodo de trabajo</p>
+		<h1>La homeopatía en consulta médica personalizada</h1>
+		<p>
+			En consulta se estudia a la persona en conjunto, no solo un diagnóstico.
+			Ademas del síntoma principal, se revisan antecedentes, ritmo de aparición del
+			problema y factores que lo empeoran o mejoran.
+		</p>
+	</section>
+
+	<section class="section split">
+		<article class="panel">
+			<h2>Por qué se individualiza</h2>
+			<p>
+				Dos personas con la misma dolencia pueden presentar intensidad, frecuencia y
+				evolución distintas. Por eso no se aplica un único plan a todos los
+				pacientes.
+			</p>
+		</article>
+		<article class="panel">
+			<h2>Sintomas cómo señales</h2>
+			<p>
+				Fiebre, tos o moco no siempre son "enemigos" a suprimir de forma automática.
+				Se analiza su papel en la respuesta del organismo para decidir el mejor
+				abordaje en cada etapa.
+			</p>
+		</article>
+	</section>
+
+	<section class="section panel">
+		<h2>Objetivo terapéutico</h2>
+		<p>
+			Buscar una mejoria estable y progresiva del estado general, sobre todo en
+			procesos recurrentes y crónicos. La consulta plantea una integración
+			responsable con medicina convencional cuándo el caso lo requiere.
+		</p>
+		<a class="button" href="/contacto">Resolver dudas en consulta</a>
+	</section>
+</BaseLayout>

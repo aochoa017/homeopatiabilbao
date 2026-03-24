@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Asma - Enfoque Homeopático | Homeopatía Bilbao";
+const description =
+	"Caso clínico de asma infantil en consulta homeopática: análisis de antecedentes, estrategia y seguimiento.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel">
+		<p class="eyebrow">Caso clínico pulmonar</p>
+		<h1>Asma - Enfoque homeopático</h1>
+		<p>
+			Clinicamente, el asma se expresa cómo una dificultad respiratoria asociada a
+			inflamacion de las vias aereas. En consulta se estudia el inicio real del
+			cuadro y su evolución, para identificar qué factores activaron la recurrencia.
+		</p>
+	</section>
+
+	<section class="section split">
+		<article class="panel">
+			<h2>Asma infantil</h2>
+			<p>
+				En algunos lactantes los episodios respiratorios repetidos aparecen poco
+				desde las primeras inmunizaciones. El análisis no se limita al broncoespasmo,
+				sino a la secuencia temporal completa y al comportamiento inmunologico del
+				niño.
+			</p>
+		</article>
+
+		<article class="panel">
+			<h2>Caso de consulta</h2>
+			<p>
+				Varón de 9 meses con bronquiolitis de repetición desde los 3 meses. Se
+				diseñó un abordaje homeopático individualizado y, en la revisión a 3 meses,
+				los procesos catarrales no descendieron a bronquio y se resolvieron de forma
+				natural. Un año después seguia sin recidivas relevantes.
+			</p>
+		</article>
+	</section>
+
+	<section class="section panel cta-block">
+		<h2>Necesitas una valoración de tu caso</h2>
+		<p>La consulta incluye entrevista clínica completa y plan de seguimiento.</p>
+		<a class="button" href="/contacto">Pedir cita</a>
+	</section>
+</BaseLayout>

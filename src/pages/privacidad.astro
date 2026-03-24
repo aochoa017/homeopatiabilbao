@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const title = "Política de Privacidad | Homeopatía Bilbao";
+const description = "Información sobre tratamiento de datos personales en esta web.";
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel legal">
+		<p class="eyebrow">Protección de datos</p>
+		<h1>Política de privacidad</h1>
+		<p>
+			Esta política cumple el Reglamento (UE) 2016/679 (RGPD) y la Ley Organica
+			3/2018 (LOPDGDD).
+		</p>
+
+		<h2>Responsable del tratamiento</h2>
+		<ul>
+			<li>Responsable: {site.doctor}</li>
+			<li>Modalidad: {site.serviceMode}</li>
+			<li>Email: {site.email}</li>
+			<li>Teléfono: {site.phoneDisplay}</li>
+		</ul>
+
+		<h2>Finalidad</h2>
+		<p>
+			Los datos enviados mediante formularios o correo electrónico se usan
+			exclusivamente para responder consultas, gestionar solicitudes de cita y
+			realizar comunicaciones relacionadas con la atención solicitada.
+		</p>
+
+		<h2>Base jurídica</h2>
+		<p>
+			La base legal es el consentimiento del interesado al enviar el formulario y,
+			en su caso, la aplicación de medidas precontractuales solicitadas por el
+			propio usuario.
+		</p>
+
+		<h2>Conservacion de los datos</h2>
+		<p>
+			Los datos se conservaran el tiempo necesario para atender la consulta y
+			cumplir obligaciones legales aplicables.
+		</p>
+
+		<h2>Destinatarios</h2>
+		<p>
+			No se cederán datos a terceros salvo obligación legal. Para la gestión técnica
+			del formulario se utiliza FormSubmit cómo proveedor de envio de mensajes.
+		</p>
+
+		<h2>Derechos</h2>
+		<p>
+			Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición,
+			limitación y portabilidad escribiendo a <a href={`mailto:${site.email}`}>{site.email}</a>.
+			También puedes presentar una reclamacion ante la Agencia Española de
+			Protección de Datos (AEPD).
+		</p>
+	</section>
+</BaseLayout>

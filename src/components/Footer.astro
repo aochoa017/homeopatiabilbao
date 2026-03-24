@@ -1,0 +1,44 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="site-footer">
+	<div class="container footer-grid">
+		<section>
+			<h2>Centro Homeopático Bilbao</h2>
+			<p>
+				Consulta de la {site.doctor} en {site.city}. Atención personalizada para
+				salud respiratoria, dermatologica y bienestar general.
+			</p>
+		</section>
+
+		<section>
+			<h2>Contacto</h2>
+			<ul class="list-clean">
+				<li>
+					<a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+				</li>
+				<li>
+					<a href={`mailto:${site.email}`}>{site.email}</a>
+				</li>
+				<li>{site.serviceMode}</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Enlaces</h2>
+			<ul class="list-clean">
+				<li><a href="/doctora">Sobre la doctora</a></li>
+				<li><a href="/casos">Casos clínicos</a></li>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/contacto">Pedir cita</a></li>
+				<li><a href="/aviso-legal">Aviso legal</a></li>
+				<li><a href="/privacidad">Privacidad</a></li>
+				<li><a href="/cookies">Cookies</a></li>
+			</ul>
+		</section>
+	</div>
+	<div class="container footer-base">
+		<p>Copyright {new Date().getFullYear()} {site.doctor}</p>
+	</div>
+</footer>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+interface Props {
+	post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const words = post.body.trim().split(/\s+/).length;
+const readingMinutes = Math.min(10, Math.max(2, Math.ceil(words / 180)));
+---
+
+<BaseLayout title={`${post.data.title} | Blog`} description={post.data.description}>
+	<article class="section panel">
+		<p class="eyebrow">{post.data.category}</p>
+		<h1>{post.data.title}</h1>
+		<p class="meta">
+			{post.data.publishDate} · {post.data.author}
+			<span class="reading-badge">Lectura estimada: {readingMinutes} min</span>
+		</p>
+		<div class="article-content">
+			<Content />
+		</div>
+	</article>
+
+	<section class="section panel cta-block">
+		<h2>¿Quieres comentar tu caso en consulta?</h2>
+		<p>Solicita información y te orientamos sobre el siguiente paso.</p>
+		<a class="button" href="/contacto">Pedir cita</a>
+	</section>
+</BaseLayout>

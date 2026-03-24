@@ -1,0 +1,57 @@
+<aside id="cookie-banner" class="cookie-banner" hidden>
+	<div>
+		<strong>Cookies</strong>
+		<p>
+			Este sitio usa cookies técnicas necesarias para su funcionamiento. Puedes
+			consultar más información en nuestra política de cookies.
+		</p>
+	</div>
+	<div class="cookie-actions">
+		<a class="text-link" href="/cookies">Ver política</a>
+		<button class="button compact" id="cookie-accept" type="button">Aceptar</button>
+	</div>
+</aside>
+
+<script>
+	const key = "hb_cookie_notice_accepted";
+
+	const hasAcceptedCookies = () => {
+		try {
+			if (localStorage.getItem(key) === "1") return true;
+		} catch {
+			// Ignore storage access issues and fallback to cookie check.
+		}
+		return document.cookie.includes(`${key}=1`);
+	};
+
+	const persistAcceptance = () => {
+		try {
+			localStorage.setItem(key, "1");
+		} catch {
+			// Ignore storage access issues and fallback to cookie.
+		}
+		document.cookie = `${key}=1; Path=/; Max-Age=31536000; SameSite=Lax`;
+	};
+
+	const setupCookieBanner = () => {
+		const banner = document.getElementById("cookie-banner");
+		const button = document.getElementById("cookie-accept");
+
+		if (!banner || !button) return;
+
+		const accepted = hasAcceptedCookies();
+		banner.hidden = accepted;
+
+		button.addEventListener("click", () => {
+			persistAcceptance();
+			banner.hidden = true;
+			banner.style.display = "none";
+		});
+	};
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", setupCookieBanner, { once: true });
+	} else {
+		setupCookieBanner();
+	}
+</script>

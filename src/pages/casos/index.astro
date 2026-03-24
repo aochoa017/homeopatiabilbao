@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Casos Clinicos | Homeopatía Bilbao";
+const description =
+	"Listado de casos clínicos con enfoque homeopático en consulta: respiratorio, dermatologico y bienestar general.";
+
+const cases = [
+	{
+		title: "Asma - Enfoque homeopático",
+		category: "Pulmonar",
+		summary: "Caso de asma infantil con seguimiento clínico y evolución favorable.",
+		href: "/casos/asma",
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="section panel">
+		<p class="eyebrow">Casos clínicos</p>
+		<h1>Experiencia clínica de consulta</h1>
+		<p>
+			Se presentan ejemplos representativos de casos atendidos para explicar cómo
+			se analiza cada cuadro y cómo se estructura el seguimiento personalizado.
+		</p>
+	</section>
+
+	<section class="section grid">
+		{
+			cases.map((item) => (
+				<article class="panel card">
+					<p class="eyebrow">{item.category}</p>
+					<h2>{item.title}</h2>
+					<p>{item.summary}</p>
+					<a class="text-link" href={item.href}>
+						Ver detalle
+					</a>
+				</article>
+			))
+		}
+	</section>
+</BaseLayout>
