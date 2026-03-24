@@ -5,6 +5,7 @@ import { site } from "../data/site";
 const title = "Contacto y Cita | Homeopatía Bilbao";
 const description =
 	"Pide información o cita en la consulta de homeopatía en Bilbao mediante teléfono o formulario.";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,7 +24,7 @@ const description =
 		<article class="panel">
 			<h2>Datos de contacto</h2>
 			<figure class="media-figure small">
-				<img src="/images/doctora02.jpg" alt="Espacio de consulta en Bilbao" loading="lazy" />
+				<img src={`${baseUrl}images/doctora02.jpg`} alt="Espacio de consulta en Bilbao" loading="lazy" />
 			</figure>
 			<ul class="list-clean">
 				<li>Teléfono: <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></li>
@@ -41,7 +42,7 @@ const description =
 			>
 				<input type="hidden" name="_subject" value="Nueva solicitud de cita - Homeopatía Bilbao" />
 				<input type="hidden" name="_captcha" value="false" />
-				<input type="hidden" name="_next" value="https://homeopatiabilbao.es/contacto?enviado=1" />
+				<input type="hidden" name="_next" value={`${baseUrl}contacto?enviado=1`} />
 				<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
 				<div class="field">
@@ -79,15 +80,15 @@ const description =
 					<div>
 						<input id="rgpd" name="rgpd" type="checkbox" required />
 						Acepto el tratamiento de datos para gestionar mi solicitud, según la
-						<a href="/privacidad">política de privacidad</a>.
+						<a href={`${baseUrl}privacidad`}>política de privacidad</a>.
 					</div>
 				</div>
 
 				<button class="button" type="submit">Enviar solicitud</button>
 				<p class="meta">
-					Al enviar, confirmas que has leído el <a href="/aviso-legal">aviso legal</a>,
-					la <a href="/privacidad">política de privacidad</a> y la
-					<a href="/cookies">política de cookies</a>.
+					Al enviar, confirmas que has leído el <a href={`${baseUrl}aviso-legal`}>aviso legal</a>,
+					la <a href={`${baseUrl}privacidad`}>política de privacidad</a> y la
+					<a href={`${baseUrl}cookies`}>política de cookies</a>.
 				</p>
 			</form>
 		</article>

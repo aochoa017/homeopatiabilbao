@@ -1,19 +1,20 @@
 ---
 const links = [
-	{ href: "/", label: "Inicio" },
-	{ href: "/doctora", label: "Doctora" },
-	{ href: "/enfoque-homeopatico", label: "Enfoque" },
-	{ href: "/casos", label: "Casos" },
-	{ href: "/blog", label: "Blog" },
-	{ href: "/contacto", label: "Contacto" },
+	{ path: "", label: "Inicio" },
+	{ path: "doctora", label: "Doctora" },
+	{ path: "enfoque-homeopatico", label: "Enfoque" },
+	{ path: "casos", label: "Casos" },
+	{ path: "blog", label: "Blog" },
+	{ path: "contacto", label: "Contacto" },
 ];
 
 const pathname = Astro.url.pathname;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <header class="site-header">
 	<div class="container nav-wrap">
-		<a class="brand" href="/" aria-label="Ir a inicio">
+		<a class="brand" href={baseUrl} aria-label="Ir a inicio">
 			<span class="brand-mark">HB</span>
 			<span>
 				<strong>Homeopatía Bilbao</strong>
@@ -24,20 +25,26 @@ const pathname = Astro.url.pathname;
 		<nav aria-label="Navegacion principal">
 			<ul>
 				{
-					links.map((link) => (
+					links.map((link) => {
+						const href = `${baseUrl}${link.path}`;
+						const normalizedPathname = pathname.endsWith("/") ? pathname : `${pathname}/`;
+						const normalizedHref = href.endsWith("/") ? href : `${href}/`;
+
+						return (
 						<li>
 							<a
-								href={link.href}
-								class:list={{ active: pathname === link.href }}
+								href={href}
+								class:list={{ active: normalizedPathname === normalizedHref }}
 							>
 								{link.label}
 							</a>
 						</li>
-					))
+						);
+					})
 				}
 			</ul>
 		</nav>
 
-		<a class="button compact" href="/contacto">Pedir cita</a>
+		<a class="button compact" href={`${baseUrl}contacto`}>Pedir cita</a>
 	</div>
 </header>

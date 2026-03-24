@@ -1,5 +1,7 @@
 ---
 import { site } from "../data/site";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <footer class="site-footer">
@@ -28,13 +30,13 @@ import { site } from "../data/site";
 		<section>
 			<h2>Enlaces</h2>
 			<ul class="list-clean">
-				<li><a href="/doctora">Sobre la doctora</a></li>
-				<li><a href="/casos">Casos clínicos</a></li>
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/contacto">Pedir cita</a></li>
-				<li><a href="/aviso-legal">Aviso legal</a></li>
-				<li><a href="/privacidad">Privacidad</a></li>
-				<li><a href="/cookies">Cookies</a></li>
+				<li><a href={`${baseUrl}doctora`}>Sobre la doctora</a></li>
+				<li><a href={`${baseUrl}casos`}>Casos clínicos</a></li>
+				<li><a href={`${baseUrl}blog`}>Blog</a></li>
+				<li><a href={`${baseUrl}contacto`}>Pedir cita</a></li>
+				<li><a href={`${baseUrl}aviso-legal`}>Aviso legal</a></li>
+				<li><a href={`${baseUrl}privacidad`}>Privacidad</a></li>
+				<li><a href={`${baseUrl}cookies`}>Cookies</a></li>
 			</ul>
 		</section>
 	</div>

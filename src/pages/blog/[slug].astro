@@ -18,6 +18,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const words = post.body.trim().split(/\s+/).length;
 const readingMinutes = Math.min(10, Math.max(2, Math.ceil(words / 180)));
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${post.data.title} | Blog`} description={post.data.description}>
@@ -36,6 +37,6 @@ const readingMinutes = Math.min(10, Math.max(2, Math.ceil(words / 180)));
 	<section class="section panel cta-block">
 		<h2>¿Quieres comentar tu caso en consulta?</h2>
 		<p>Solicita información y te orientamos sobre el siguiente paso.</p>
-		<a class="button" href="/contacto">Pedir cita</a>
+		<a class="button" href={`${baseUrl}contacto`}>Pedir cita</a>
 	</section>
 </BaseLayout>

@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Enfoque Homeopático | Homeopatía Bilbao";
 const description =
 	"Como se trabaja en consulta: evaluación individual, síntomas cómo señales del organismo y seguimiento personalizado.";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -43,6 +44,6 @@ const description =
 			procesos recurrentes y crónicos. La consulta plantea una integración
 			responsable con medicina convencional cuándo el caso lo requiere.
 		</p>
-		<a class="button" href="/contacto">Resolver dudas en consulta</a>
+		<a class="button" href={`${baseUrl}contacto`}>Resolver dudas en consulta</a>
 	</section>
 </BaseLayout>

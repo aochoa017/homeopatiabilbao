@@ -5,6 +5,7 @@ import { site } from "../data/site";
 const title = "Sobre la Doctora | Homeopatía Bilbao";
 const description =
 	"Biografia y currículum de la Dra. Mª Luz Ramos, con información de formación y trayectoria según la web original.";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -26,7 +27,7 @@ const description =
 			</div>
 			<figure class="media-figure">
 				<img
-					src="/images/doctora01.png"
+					src={`${baseUrl}images/doctora01.png`}
 					alt="Dra. Mª Luz Ramos en consulta"
 					loading="eager"
 				/>
@@ -84,6 +85,6 @@ const description =
 			Por ejemplo, fiebre, tos o moco pueden formar parte de la respuesta defensiva
 			del cuerpo y se valoran dentro del contexto clínico completo.
 		</p>
-		<a class="button secondary" href="/contacto">Solicitar valoración</a>
+		<a class="button secondary" href={`${baseUrl}contacto`}>Solicitar valoración</a>
 	</section>
 </BaseLayout>

@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const title = "Asma - Enfoque Homeopático | Homeopatía Bilbao";
 const description =
 	"Caso clínico de asma infantil en consulta homeopática: análisis de antecedentes, estrategia y seguimiento.";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -42,6 +43,6 @@ const description =
 	<section class="section panel cta-block">
 		<h2>Necesitas una valoración de tu caso</h2>
 		<p>La consulta incluye entrevista clínica completa y plan de seguimiento.</p>
-		<a class="button" href="/contacto">Pedir cita</a>
+		<a class="button" href={`${baseUrl}contacto`}>Pedir cita</a>
 	</section>
 </BaseLayout>
