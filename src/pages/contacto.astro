@@ -4,10 +4,18 @@ import { site } from "../data/site";
 
 const title = "Contacto y Cita | Homeopatía Bilbao";
 const description =
-	"Pide información o cita en la consulta de homeopatía en Bilbao mediante teléfono o formulario.";
+	"Pide información o cita en la consulta de homeopatía en Bilbao por teléfono, WhatsApp o email.";
 const baseUrl = import.meta.env.BASE_URL.endsWith("/")
 	? import.meta.env.BASE_URL
 	: `${import.meta.env.BASE_URL}/`;
+
+// wa.me exige el número en formato internacional, solo dígitos
+// (sin "+", ceros iniciales, espacios, paréntesis ni guiones).
+// site.phoneHref tiene el formato "+34658746672" (el mismo que usa el enlace tel:).
+const whatsappNumber = site.phoneHref.replace(/\D/g, "");
+const whatsappMessage =
+	"Hola, me gustaría solicitar información o una cita en la consulta de homeopatía.";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,8 +24,8 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
 		<h1>Solicitar información o cita</h1>
 		<p>
 			Puedes llamarnos al <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
-			o escribirnos mediante el formulario para que contactemos contigo. Si lo
-			prefieres, también puedes escribir directamente a <a href={`mailto:${site.email}`}>{site.email}</a>.
+			o escribirnos por WhatsApp al mismo número. Si lo prefieres, también puedes
+			escribir directamente a <a href={`mailto:${site.email}`}>{site.email}</a>.
 			La atención se presta de forma exclusivamente telematica.
 		</p>
 	</section>
@@ -30,69 +38,40 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
 			</figure>
 			<ul class="list-clean">
 				<li>Teléfono: <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></li>
+				<li>WhatsApp: <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{site.phoneDisplay}</a></li>
 				<li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
 				<li>{site.serviceMode}</li>
 			</ul>
 		</article>
 
-		<article class="panel">
-			<h2>Formulario de contacto</h2>
-			<form
-				class="form-grid"
-				action="https://formsubmit.co/homeopatiabilbao@gmail.com"
-				method="POST"
-			>
-				<input type="hidden" name="_subject" value="Nueva solicitud de cita - Homeopatía Bilbao" />
-				<input type="hidden" name="_captcha" value="false" />
-				<input type="hidden" name="_next" value={`${baseUrl}contacto?enviado=1`} />
-				<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-				<div class="field">
-					<label for="nombre">Nombre y apellidos</label>
-					<input id="nombre" name="nombre" type="text" required />
-				</div>
-
-				<div class="field">
-					<label for="email">Email</label>
-					<input id="email" name="email" type="email" required />
-				</div>
-
-				<div class="field">
-					<label for="telefono">Teléfono</label>
-					<input id="telefono" name="telefono" type="tel" required />
-				</div>
-
-				<div class="field">
-					<label for="motivo">Motivo de consulta</label>
-					<select id="motivo" name="motivo" required>
-						<option value="">Selecciona una opción</option>
-						<option value="primera-cita">Primera cita</option>
-						<option value="seguimiento">Seguimiento</option>
-						<option value="informacion">Información general</option>
-					</select>
-				</div>
-
-				<div class="field">
-					<label for="mensaje">Mensaje</label>
-					<textarea id="mensaje" name="mensaje" required></textarea>
-				</div>
-
-				<div class="field">
-					<label for="rgpd">Consentimiento</label>
-					<div>
-						<input id="rgpd" name="rgpd" type="checkbox" required />
-						Acepto el tratamiento de datos para gestionar mi solicitud, según la
-						<a href={`${baseUrl}privacidad`}>política de privacidad</a>.
-					</div>
-				</div>
-
-				<button class="button" type="submit">Enviar solicitud</button>
-				<p class="meta">
-					Al enviar, confirmas que has leído el <a href={`${baseUrl}aviso-legal`}>aviso legal</a>,
-					la <a href={`${baseUrl}privacidad`}>política de privacidad</a> y la
-					<a href={`${baseUrl}cookies`}>política de cookies</a>.
-				</p>
-			</form>
+		<article class="panel" id="whatsapp">
+			<h2>Contacta por WhatsApp</h2>
+			<p>
+				Escríbenos por WhatsApp Business al <strong>{site.phoneDisplay}</strong> para
+				pedir información o cita. Al pulsar el botón se abrirá una conversación con
+				un mensaje inicial que podrás editar antes de enviarlo.
+			</p>
+			<p>
+				<a
+					class="button"
+					href={whatsappUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={`Abrir chat de WhatsApp con ${site.phoneDisplay}`}
+				>
+					Escribir por WhatsApp
+				</a>
+			</p>
+			<p class="meta">
+				Si no tienes WhatsApp instalado, puedes llamarnos al
+				<a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a> o escribir a
+				<a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
+			<p class="meta">
+				Al contactar, confirmas que has leído el <a href={`${baseUrl}aviso-legal`}>aviso legal</a>,
+				la <a href={`${baseUrl}privacidad`}>política de privacidad</a> y la
+				<a href={`${baseUrl}cookies`}>política de cookies</a>.
+			</p>
 		</article>
 	</section>
 </BaseLayout>
